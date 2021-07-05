@@ -1,0 +1,82 @@
+<div class="container">
+  <mat-card class="mat-elevation-z8">
+
+    <mat-card-content>
+
+      <form [formGroup]="productForm" (ngSubmit)="onFormSubmit()">
+        <table>
+          <tr>
+            <td class="tbl1">
+              <mat-form-field class="demo-full-width">
+                <input formControlName="product_name" matTooltip="Enter Product Name" matInput required
+                  placeholder="Product Name" autocomplete="off">
+              </mat-form-field>
+              <mat-error>
+                <span  *ngIf="hasError('product_name', 'required')"> Name required!</span>    
+              </mat-error>
+            </td>
+            <td class="tbl1">
+              <mat-form-field class="demo-full-width">
+              
+                <textarea formControlName="description" matTooltip="Enter Description" matInput
+                required placeholder="Description"
+                  autocomplete="off"></textarea>
+              </mat-form-field>
+              <mat-error>
+                <span  *ngIf="hasError('description', 'required')"> Description required!</span>    
+              </mat-error>
+            </td>
+
+            <td class="tbl1">
+              <mat-form-field class="demo-full-width">
+                <input formControlName="color" matTooltip="Enter Color" matInput
+                required placeholder="Color" autocomplete="off">
+              </mat-form-field>
+              <mat-error>
+                <span  *ngIf="hasError('description', 'required')"> Color required!</span>    
+              </mat-error>
+            </td>
+            <td class="tbl1">
+              <mat-form-field class="demo-full-width">
+                <input formControlName="price" matTooltip="Enter Price" matInput type="number"
+                required placeholder="Price($)" autocomplete="off">
+               
+              </mat-form-field>
+              <mat-error>
+                <span  *ngIf="hasError('price', 'required')"> Price required!</span>  
+              </mat-error>
+
+            </td>
+            <td class="tbl1">
+              <mat-form-field class="demo-full-width">
+                <input formControlName="available_qty" matTooltip="Enter Available Quantity" matInput required
+                 type="number" placeholder="Available Quantity" autocomplete="off">
+              </mat-form-field>
+              <mat-error>
+                <span  *ngIf="hasError('available_qty', 'required')"> Available Quantity required!</span>    
+              </mat-error>
+            </td>
+
+          </tr>
+
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="content-center">
+
+              <mat-card-actions align="start">
+             
+              <button type="submit" mat-raised-button color="accent" matTooltip="Submit"
+                [disabled]="!productForm.valid">Submit</button>
+              <button type="reset" mat-raised-button color="warn" matTooltip="Reset"
+                (click)="productForm.reset()">Reset</button> </mat-card-actions>
+            </td>
+
+          </tr>
+        </table>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
